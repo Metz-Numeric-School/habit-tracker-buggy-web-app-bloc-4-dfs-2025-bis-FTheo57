@@ -1,2 +1,22 @@
+# Environment variables
+.env
 .env.local
+
+# Docker volumes & logs
+logs/
+docker/mysql-data/
+
+# Composer
 vendor/
+composer.phar
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
