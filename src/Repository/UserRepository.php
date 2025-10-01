@@ -28,6 +28,9 @@ class UserRepository extends AbstractRepository
 
     public function insert(array $data = array())
     {
+        if (isset($data['password'])) {
+            $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+        }
         $sql = "INSERT INTO mns_user (lastname, firstname, email, password, isadmin) VALUES (:lastname, :firstname, :email, :password, :isadmin)";
         $query = $this->getConnection()->prepare($sql);
         $query->execute($data);

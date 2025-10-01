@@ -1,59 +1,70 @@
 [
-    {
-        "path": "/",
-        "controller": "App\\Controller\\Web\\HomeController",
-        "action": "index"
-    },
-    {
-        "path": "/login",
-        "controller": "App\\Controller\\SecurityController",
-        "action": "login"
-    },
-    {
-        "path": "/logout",
-        "controller": "App\\Controller\\SecurityController",
-        "action": "logout"
-    },
-    {
-        "path": "/register",
-        "controller": "App\\Controller\\RegisterController",
-        "action": "index"
-    },
-    {
-        "path": "/admin/dashboard",
-        "controller": "App\\Controller\\Admin\\DashboardController",
-        "action": "index",
-        "guard": "App\\Guard\\AdminGuard"
-    },
-    {
-        "path": "/admin/user",
-        "controller": "App\\Controller\\Admin\\UserController",
-        "action": "index"
-    },
-    {
-        "path": "/admin/user/new",
-        "controller": "App\\Controller\\Admin\\UserController",
-        "action": "new"
-    },
-    {
-        "path": "/dashboard",
-        "controller": "App\\Controller\\Member\\DashboardController",
-        "action": "index",
-        "guard": "App\\Guard\\UserGuard"
-    },
-    {
-        "path": "/habits",
-        "controller": "App\\Controller\\Member\\HabitsController",
-        "action": "index"
-    },
-    {
-        "path": "/habits/create",
-        "controller": "App\\Controller\\Member\\HabitsController",
-        "action": "new"
-    },
-    {
-        "path": "/api/habits",
-        "controller": "App\\Controller\\Api\\HabitsController",
-        "action": "index"
-    }
+  {
+    "path": "/",
+    "controller": "App\\Controller\\Web\\HomeController",
+    "action": "index"
+  },
+  {
+    "path": "/login",
+    "controller": "App\\Controller\\SecurityController",
+    "action": "login"
+  },
+  {
+    "path": "/logout",
+    "controller": "App\\Controller\\SecurityController",
+    "action": "logout"
+  },
+  {
+    "path": "/register",
+    "controller": "App\\Controller\\RegisterController",
+    "action": "index"
+  },
+  {
+    "path": "/admin/dashboard",
+    "controller": "App\\Controller\\Admin\\DashboardController",
+    "action": "index",
+    "guard": "App\\Guard\\AdminGuard"
+  },
+  {
+    "path": "/admin/user",
+    "controller": "App\\Controller\\Admin\\UserController",
+    "action": "index",
+    "guard": "App\\Guard\\AdminGuard"
+  },
+  {
+    "path": "/admin/user/new",
+    "controller": "App\\Controller\\Admin\\UserController",
+    "action": "new",
+    "guard": "App\\Guard\\AdminGuard"
+  },
+  {
+    "path": "/dashboard",
+    "controller": "App\\Controller\\Member\\DashboardController",
+    "action": "index",
+    "guard": "App\\Guard\\UserGuard"
+  },
+  {
+    "path": "/habits",
+    "controller": "App\\Controller\\Member\\HabitsController",
+    "action": "index",
+    "guard": "App\\Guard\\UserGuard"
+  },
+  {
+    "path": "/habits/create",
+    "controller": "App\\Controller\\Member\\HabitsController",
+    "action": "new",
+    "guard": "App\\Guard\\UserGuard"
+  },
+  {
+    "path": "/api/habits",
+    "controller": "App\\Controller\\Api\\HabitsController",
+    "action": "index",
+    "guard": "App\\Guard\\UserGuard"
+  },
+  {
+    "path": "/habit/toggle",
+    "controller": "App\\Controller\\Member\\HabitsController",
+    "action": "toggle",
+    "guard": "App\\Guard\\UserGuard"
+  }
 ]

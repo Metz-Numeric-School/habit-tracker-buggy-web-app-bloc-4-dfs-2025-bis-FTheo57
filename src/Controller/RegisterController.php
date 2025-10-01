@@ -49,7 +49,7 @@ class RegisterController extends AbstractController
                 ];
 
                 // On redirige vers son dashboard
-                header("Location: /user/ticket");
+                header("Location: /dashboard");
                 exit;
             }
         }

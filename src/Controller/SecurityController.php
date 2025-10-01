@@ -19,7 +19,7 @@ class SecurityController extends AbstractController
 
         if(!empty($_SESSION['user']))
         {
-            $_SESSION['admin'] ? header('Location: /admin/dashboard') : header('Location: /user/dashboard'); die;
+            $_SESSION['admin'] ? header('Location: /admin/dashboard') : header('Location: /dashboard');
         }
 
         if(!empty($_POST)) {
@@ -30,7 +30,7 @@ class SecurityController extends AbstractController
 
             if($user) {
                 // On vérifie le mot de passe
-                if($password == $user->getPassword()) {
+                if((password_verify($password == $user->getPassword()))){
     
                     $_SESSION['user'] = [
                         'id' => $user->getId(),
@@ -38,13 +38,14 @@ class SecurityController extends AbstractController
                     ];
 
                     if($user->getIsadmin()) {
-                        header('Location: /admin/dashboard');
                         $_SESSION['admin'] = $user->getIsAdmin();
+                        header('Location: /admin/dashboard');
                         exit;
                     }
                     else
                     {
                         header('Location: /dashboard');
+                        exit;
                     }
                 }
                 else

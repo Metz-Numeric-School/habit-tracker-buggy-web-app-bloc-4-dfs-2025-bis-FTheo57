@@ -39,17 +39,13 @@ class HabitRepository extends AbstractRepository
 
     public function insert(array $data = array())
     {
-        $name = $data['name'];   
-        $description = $data['description'];
-
-        // Requête construite par concaténation (vulnérable)
-        $sql = "INSERT INTO habits (user_id, name, description, created_at) VALUES (" 
-            . $data['user_id'] . ", '" 
-            . $name . "', '" 
-            . $description . "', NOW())";
-
-        $query = $this->getConnection()->query($sql);
-
+        $sql = "INSERT INTO habits (user_id, name, description, created_at) VALUES (:user_id, :name, :description, NOW())";
+        $query = $this->getConnection()->prepare($sql);
+        $query->execute([
+            'user_id' => $data['user_id'],
+            'name' => $data['name'],
+            'description' => $data['description'] ?? null
+        ]);
         return $this->getConnection()->lastInsertId();
     }
 
@@ -77,10 +73,6 @@ class HabitRepository extends AbstractRepository
         foreach ($dates as $dateStr) {
             $date = new \DateTime($dateStr);
             if ($date->format('Y-m-d') === $today->format('Y-m-d')) {
-                $streak++;
-                $today->modify('-1 day');
-            } elseif ($date->format('Y-m-d') === $today->format('Y-m-d')) {
-                // continue streak
                 $streak++;
                 $today->modify('-1 day');
             } else {
