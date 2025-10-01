@@ -20,7 +20,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Total habitudes créées</h5>
                     <p class="card-text display-6"><?= $totalHabits ?></p>
-                    <a href="/admin/habits" class="btn btn-outline-primary btn-sm">Gérer les habitudes</a>
                 </div>
             </div>
         </div>

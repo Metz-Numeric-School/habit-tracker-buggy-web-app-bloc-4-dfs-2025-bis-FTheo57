@@ -52,9 +52,9 @@ class SecurityController extends AbstractController
                 {
                     $error = 'Invalid username or password';
                 }
+            } else {
+                $error = 'Invalid username or password';
             }
-
-            $error = 'Invalid username or password';
         }
 
         return $this->render('security/login.html.php', [
